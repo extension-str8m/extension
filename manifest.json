@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "STR8M.GG - Anexo de Áudio para Donate",
+  "version": "1.0.1",
+  "description": "Permite anexar arquivos de áudio (.wav, .mp3, etc.) nos donates da STR8M.GG em vez de gravar pelo microfone.",
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.str8m.gg/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "world": "MAIN",
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["styles.css", "icons/*"],
+      "matches": ["*://*.str8m.gg/*"]
+    }
+  ]
+}
